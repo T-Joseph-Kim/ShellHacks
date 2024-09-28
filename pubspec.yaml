@@ -25,6 +25,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.5
+  flutter_native_splash: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +42,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/BetterBitesLogo.png
     - assets/images/
     - assets/icons/
     - assets/fonts/
@@ -80,3 +82,13 @@ flutter:
           weight: 800
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_native_splash:
+  color: "#013220" # Background color of the splash screen
+  image: assets/images/BetterBitesLogo.png # Path to your logo image in the assets folder
+  android: true # Enable splash screen for Android
+  ios: true # Enable splash screen for iOS
+  android_scaleType: centerInside # Adjust the logo scaling (optional, use centerCrop, centerInside, fitCenter, etc.)
+  ios_content_mode: center # Adjust the logo scaling for iOS (optional, use center, aspectFill, aspectFit, etc.)
+  android_12:
+    image: assets/images/BetterBitesLogo.png
+    color: "#013220"
