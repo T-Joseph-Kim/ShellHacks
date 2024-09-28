@@ -1,33 +1,33 @@
 class Recipe {
-  String title;
-  String photo;
-  String calories;
-  String time;
-  String description;
+  String? title;
+  String? photo;
+  String? calories;
+  String? time;
+  String? description;
 
-  List<Ingridient> ingridients;
-  List<TutorialStep> tutorial;
-  List<Review> reviews;
+  List<Ingridient>? ingridients;
+  List<TutorialStep>? tutorial;
+  List<Review>? reviews;
 
   Recipe({this.title, this.photo, this.calories, this.time, this.description, this.ingridients, this.tutorial, this.reviews});
 
   factory Recipe.fromJson(Map<String, Object> json) {
     return Recipe(
-      title: json['title'],
-      photo: json['photo'],
-      calories: json['calories'],
-      time: json['time'],
-      description: json['description'],
+      title: json['title'] as String?,
+      photo: json['photo'] as String?,
+      calories: json['calories'] as String?,
+      time: json['time'] as String?,
+      description: json['description'] as String?,
     );
   }
 }
 
 class TutorialStep {
-  String step;
-  String description;
+  String? step;
+  String? description;
   TutorialStep({this.step, this.description});
 
-  Map<String, Object> toMap() {
+  Map<String, Object?> toMap() {
     return {
       'step': step,
       'description': description,
@@ -35,8 +35,8 @@ class TutorialStep {
   }
 
   factory TutorialStep.fromJson(Map<String, Object> json) => TutorialStep(
-        step: json['step'],
-        description: json['description'],
+        step: json['step'] as String?,
+        description: json['description'] as String?,
       );
 
   static List<TutorialStep> toList(List<Map<String, Object>> json) {
@@ -45,16 +45,16 @@ class TutorialStep {
 }
 
 class Review {
-  String username;
-  String review;
+  String? username;
+  String? review;
   Review({this.username, this.review});
 
   factory Review.fromJson(Map<String, Object> json) => Review(
-        review: json['review'],
-        username: json['username'],
+        review: json['review'] as String?,
+        username: json['username'] as String?,
       );
 
-  Map<String, Object> toMap() {
+  Map<String, Object?> toMap() {
     return {
       'username': username,
       'review': review,
@@ -67,16 +67,16 @@ class Review {
 }
 
 class Ingridient {
-  String name;
-  String size;
+  String? name;
+  String? size;
 
   Ingridient({this.name, this.size});
   factory Ingridient.fromJson(Map<String, Object> json) => Ingridient(
-        name: json['name'],
-        size: json['size'],
+        name: json['name'] as String?,
+        size: json['size'] as String?,
       );
 
-  Map<String, Object> toMap() {
+  Map<String, Object?> toMap() {
     return {
       'name': name,
       'size': size,

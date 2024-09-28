@@ -3,9 +3,9 @@ import 'package:hungry/views/utils/AppColor.dart';
 
 class UserInfoTile extends StatelessWidget {
   final String label, value;
-  final EdgeInsetsGeometry margin, padding;
-  final Color valueBackground;
-  UserInfoTile({@required this.label, @required this.value, this.padding, this.margin, this.valueBackground});
+  final EdgeInsetsGeometry? margin, padding;
+  final Color? valueBackground;
+  UserInfoTile({required this.label, required this.value, this.padding, this.margin, this.valueBackground});
 
   @override
   Widget build(BuildContext context) {

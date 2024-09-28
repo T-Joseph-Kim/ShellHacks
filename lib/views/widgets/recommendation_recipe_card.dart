@@ -5,7 +5,7 @@ import 'package:hungry/views/screens/recipe_detail_page.dart';
 
 class RecommendationRecipeCard extends StatelessWidget {
   final Recipe data;
-  RecommendationRecipeCard({@required this.data});
+  RecommendationRecipeCard({required this.data});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,7 +25,7 @@ class RecommendationRecipeCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.blueGrey,
                 image: DecorationImage(
-                  image: AssetImage(data.photo),
+                  image: AssetImage(data.photo!),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -35,7 +35,7 @@ class RecommendationRecipeCard extends StatelessWidget {
               margin: EdgeInsets.only(top: 10, bottom: 8),
               padding: EdgeInsets.only(left: 4),
               child: Text(
-                data.title,
+                data.title!,
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, fontFamily: 'inter'),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

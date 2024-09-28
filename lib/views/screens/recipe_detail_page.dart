@@ -10,23 +10,23 @@ import 'package:hungry/views/widgets/step_tile.dart';
 
 class RecipeDetailPage extends StatefulWidget {
   final Recipe data;
-  RecipeDetailPage({@required this.data});
+  RecipeDetailPage({required this.data});
 
   @override
   _RecipeDetailPageState createState() => _RecipeDetailPageState();
 }
 
 class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProviderStateMixin {
-  TabController _tabController;
-  ScrollController _scrollController;
+  TabController? _tabController;
+  ScrollController? _scrollController;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
     _scrollController = ScrollController(initialScrollOffset: 0.0);
-    _scrollController.addListener(() {
-      changeAppBarColor(_scrollController);
+    _scrollController!.addListener(() {
+      changeAppBarColor(_scrollController!);
     });
   }
 
@@ -89,7 +89,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
       ),
       // Post Review FAB
       floatingActionButton: Visibility(
-        visible: showFAB(_tabController),
+        visible: showFAB(_tabController!),
         child: FloatingActionButton(
           onPressed: () {
             showDialog(
@@ -154,12 +154,12 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
           // Section 1 - Recipe Image
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => FullScreenImage(image: Image.asset(widget.data.photo, fit: BoxFit.cover))));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => FullScreenImage(image: Image.asset(widget.data.photo!, fit: BoxFit.cover))));
             },
             child: Container(
               height: 280,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(image: DecorationImage(image: AssetImage(widget.data.photo), fit: BoxFit.cover)),
+              decoration: BoxDecoration(image: DecorationImage(image: AssetImage(widget.data.photo!), fit: BoxFit.cover)),
               child: Container(
                 decoration: BoxDecoration(gradient: AppColor.linearBlackTop),
                 height: 280,
@@ -188,7 +188,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
                     Container(
                       margin: EdgeInsets.only(left: 5),
                       child: Text(
-                        widget.data.calories,
+                        widget.data.calories!,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
@@ -197,7 +197,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
                     Container(
                       margin: EdgeInsets.only(left: 5),
                       child: Text(
-                        widget.data.time,
+                        widget.data.time!,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
@@ -207,13 +207,13 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
                 Container(
                   margin: EdgeInsets.only(bottom: 12, top: 16),
                   child: Text(
-                    widget.data.title,
+                    widget.data.title!,
                     style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'inter'),
                   ),
                 ),
                 // Recipe Description
                 Text(
-                  widget.data.description,
+                  widget.data.description!,
                   style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 14, height: 150 / 100),
                 ),
               ],
@@ -228,7 +228,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
               controller: _tabController,
               onTap: (index) {
                 setState(() {
-                  _tabController.index = index;
+                  _tabController!.index = index;
                 });
               },
               labelColor: Colors.black,
@@ -250,17 +250,17 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
           ),
           // IndexedStack based on TabBar index
           IndexedStack(
-            index: _tabController.index,
+            index: _tabController!.index,
             children: [
               // Ingridients
               ListView.builder(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
-                itemCount: widget.data.ingridients.length,
+                itemCount: widget.data.ingridients!.length,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return IngridientTile(
-                    data: widget.data.ingridients[index],
+                    data: widget.data.ingridients![index],
                   );
                 },
               ),
@@ -268,11 +268,11 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
               ListView.builder(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
-                itemCount: widget.data.tutorial.length,
+                itemCount: widget.data.tutorial!.length,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return StepTile(
-                    data: widget.data.tutorial[index],
+                    data: widget.data.tutorial![index],
                   );
                 },
               ),
@@ -280,10 +280,10 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
               ListView.builder(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
-                itemCount: widget.data.reviews.length,
+                itemCount: widget.data.reviews!.length,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
-                  return ReviewTile(data: widget.data.reviews[index]);
+                  return ReviewTile(data: widget.data.reviews![index]);
                 },
               )
             ],

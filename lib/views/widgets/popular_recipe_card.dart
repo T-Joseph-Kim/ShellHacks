@@ -9,7 +9,7 @@ import 'package:hungry/views/utils/AppColor.dart';
 class PopularRecipeCard extends StatelessWidget {
   final Recipe data;
 
-  PopularRecipeCard({@required this.data});
+  PopularRecipeCard({required this.data});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,7 +22,7 @@ class PopularRecipeCard extends StatelessWidget {
         alignment: Alignment.bottomRight,
         padding: EdgeInsets.all(15),
         // Image
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), image: DecorationImage(image: AssetImage(data.photo), fit: BoxFit.cover)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), image: DecorationImage(image: AssetImage(data.photo!), fit: BoxFit.cover)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +56,7 @@ class PopularRecipeCard extends StatelessWidget {
                     children: [
                       // Recipe Title
                       Text(
-                        data.title,
+                        data.title!,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: Colors.white, fontSize: 14, height: 150 / 100, fontWeight: FontWeight.w600, fontFamily: 'inter'),
@@ -75,7 +75,7 @@ class PopularRecipeCard extends StatelessWidget {
                             Container(
                               margin: EdgeInsets.only(left: 5),
                               child: Text(
-                                data.calories,
+                                data.calories!,
                                 style: TextStyle(color: Colors.white, fontSize: 10),
                               ),
                             ),
@@ -84,7 +84,7 @@ class PopularRecipeCard extends StatelessWidget {
                             Container(
                               margin: EdgeInsets.only(left: 5),
                               child: Text(
-                                data.time,
+                                data.time!,
                                 style: TextStyle(color: Colors.white, fontSize: 10),
                               ),
                             ),

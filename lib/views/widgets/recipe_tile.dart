@@ -6,7 +6,7 @@ import 'package:hungry/views/utils/AppColor.dart';
 
 class RecipeTile extends StatelessWidget {
   final Recipe data;
-  RecipeTile({@required this.data});
+  RecipeTile({required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class RecipeTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.blueGrey,
-                image: DecorationImage(image: AssetImage(data.photo), fit: BoxFit.cover),
+                image: DecorationImage(image: AssetImage(data.photo!), fit: BoxFit.cover),
               ),
             ),
             // Recipe Info
@@ -46,7 +46,7 @@ class RecipeTile extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(bottom: 12),
                       child: Text(
-                        data.title,
+                        data.title!,
                         style: TextStyle(fontWeight: FontWeight.w600, fontFamily: 'inter'),
                       ),
                     ),
@@ -62,7 +62,7 @@ class RecipeTile extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(left: 5),
                           child: Text(
-                            data.calories,
+                            data.calories!,
                             style: TextStyle(fontSize: 12),
                           ),
                         ),
@@ -77,7 +77,7 @@ class RecipeTile extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(left: 5),
                           child: Text(
-                            data.time,
+                            data.time!,
                             style: TextStyle(fontSize: 12),
                           ),
                         ),

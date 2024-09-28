@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class FullScreenImage extends StatelessWidget {
   final Widget image;
-  FullScreenImage({@required this.image});
+  FullScreenImage({required this.image});
 
   @override
   Widget build(BuildContext context) {

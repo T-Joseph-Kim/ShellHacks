@@ -6,7 +6,7 @@ import 'package:hungry/views/utils/AppColor.dart';
 class CustomBottomNavigationBar extends StatefulWidget {
   int selectedIndex;
   Function onItemTapped;
-  CustomBottomNavigationBar({@required this.selectedIndex, @required this.onItemTapped});
+  CustomBottomNavigationBar({required this.selectedIndex, required this.onItemTapped});
 
   @override
   _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
@@ -24,7 +24,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           height: 70,
           child: BottomNavigationBar(
             currentIndex: widget.selectedIndex,
-            onTap: widget.onItemTapped,
+            onTap: widget.onItemTapped as void Function(int)?,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             elevation: 0,

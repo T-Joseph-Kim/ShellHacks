@@ -7,7 +7,7 @@ import 'package:hungry/views/screens/recipe_detail_page.dart';
 
 class FeaturedRecipeCard extends StatelessWidget {
   final Recipe data;
-  FeaturedRecipeCard({@required this.data});
+  FeaturedRecipeCard({required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class FeaturedRecipeCard extends StatelessWidget {
           color: Colors.grey,
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
-            image: AssetImage(data.photo),
+            image: AssetImage(data.photo!),
             fit: BoxFit.cover,
           ),
         ),
@@ -45,7 +45,7 @@ class FeaturedRecipeCard extends StatelessWidget {
                 children: [
                   // Recipe Title
                   Text(
-                    data.title,
+                    data.title!,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Colors.white, fontSize: 14, height: 150 / 100, fontWeight: FontWeight.w600, fontFamily: 'inter'),
@@ -64,7 +64,7 @@ class FeaturedRecipeCard extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(left: 5),
                           child: Text(
-                            data.calories,
+                            data.calories!,
                             style: TextStyle(color: Colors.white, fontSize: 10),
                           ),
                         ),
@@ -73,7 +73,7 @@ class FeaturedRecipeCard extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(left: 5),
                           child: Text(
-                            data.time,
+                            data.time!,
                             style: TextStyle(color: Colors.white, fontSize: 10),
                           ),
                         ),

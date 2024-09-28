@@ -4,14 +4,14 @@ import 'package:hungry/views/utils/AppColor.dart';
 class CustomTextField extends StatelessWidget {
   final String title;
   final String hint;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final bool obsecureText;
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   CustomTextField({
-    @required this.title,
-    @required this.hint,
+    required this.title,
+    required this.hint,
     this.controller,
     this.obsecureText = false,
     this.padding,

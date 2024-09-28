@@ -4,12 +4,12 @@ import 'package:hungry/views/utils/AppColor.dart';
 
 class DummySearchBar extends StatelessWidget {
   final Function routeTo;
-  DummySearchBar({@required this.routeTo});
+  DummySearchBar({required this.routeTo});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: routeTo,
+      onTap: routeTo as void Function()?,
       child: Container(
         margin: EdgeInsets.only(top: 8),
         padding: EdgeInsets.symmetric(horizontal: 16),
